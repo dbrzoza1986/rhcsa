@@ -1,0 +1,24 @@
+REPO
+
+### On server1:
+vi /etc/yum.repos.d/local.repo
+
+### Add the below contents to the file:
+[BaseOS]
+name=BaseOS
+enabled=1
+baseurl=http://192.168.55.47/repo/BaseOS/
+gpgcheck=0
+
+[AppStream]
+name=AppStream
+enabled=1
+baseurl=http://192.168.55.47/repo/AppStream/
+gpgcheck=0
+
+[F37]
+name=Fedora 37
+enabled=0
+baseurl=https://download-ib01.fedoraproject.org/pub/fedora/linux/releases/37/Everything/x86_64/os/
+gpgcheck=0
+

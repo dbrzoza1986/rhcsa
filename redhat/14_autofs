@@ -1,0 +1,74 @@
+autofs
+
+
+vi /etc/auto.master
+
+add
+
+/rhome	/etc/auto.rhome
+
+cp /etc/auto.misc	/etc/auto.rhome
+
+vim /etc/auto.rhome
+
+remoteuser1 -rw materials.example.com:/rhome/remoteuser1
+
+systemctl status autofs
+
+systemctl restart autofs
+
+systemctl enable autofs
+
+
+
+
+
+Configure autofs to automatically mount individual users' home directories from /export/home on 192.168.55.47 to /mnt/autofs_home/<user_name>.  
+
+
+mkdir /mnt/autofs_home/
+
+vim /etc/auto.master
+/mnt/autofs_home/	/etc/auto.home
+
+vim /etc/auto.home
+*	192.168.55.47:/export/home/&
+
+systemctl restart autofs
+
+
+
+
+
+--------------------------------------------------------
+
+
+
+
+
+w /etc/master.auto
+
+tworzymy katalog
+
+dodajemy
+
+/katalog	/etc/home.auto
+
+tworzymy /etc/home.auto
+w /etc/home.auto
+
+*	ip:/export/home/&
+
+systemctl restart autofs
+
+
+
+
+
+tworzymy /etc/rhome.auto
+dodajemy do master.auto
+
+/rhome	/etc/rhome.auto
+
+w /etc/rhome.auto
+remoteuser1	-rw	materials.example.com:/rhome/remoteuser1

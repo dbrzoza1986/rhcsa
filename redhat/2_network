@@ -1,0 +1,32 @@
+network
+
+Host name: mars.domain250.example.com
+IP Address: 172.25.250.100/24
+Network Mask: 255.255.255.0
+Gateway: 172.25.250.254
+DNS: 172.25.250.254
+
+
+ipv4.addresses 192.168.0.100/24
+ipv4.addresses 192.168.0.101/24
+ipv4.gateway "192.168.0.1" 
+ipv4.dns "8.8.8.8"
+
+nmcli show enp0s3
+nmcli con down enp0s8
+nmcli con up enp0s8
+
+nmcli con mod enp0s3 
+autoconnect yes 
+ipv4.method manual
+ipv4.addresses
+ipv4.gateway
+ipv4.dns
+
+
+
+systemctl status NetworkManager
+
+### Check to see that it's enabled and running. If not, then run
+systemctl enable --now NetworkManager
+

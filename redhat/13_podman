@@ -1,0 +1,141 @@
+42. On server1, as the user cindy, create a container image from http://192.168.55.47/containers/Containerfile with the tag web_image.
+
+Solution to Task 42
+As root, enable linger for cindy:
+
+
+
+loginctl enable-linger cindy
+Login separately as cindy. It needs to be a fresh login, do not use su -. Then build the image:
+
+
+
+
+podman build -t web_image http://192.168.55.47/containers/Containerfile
+If we run a podman images now, we should see the newly created image:
+
+
+
+
+
+podman images
+
+### Output:
+REPOSITORY                           TAG         IMAGE ID      CREATED       SIZE
+localhost/web_image                  latest      b14526ab4f3a  1 minute ago  243 MB
+registry.access.redhat.com/ubi9/ubi  latest      10acc174412e  9 days ago    219 MB
+
+
+
+1. create an image
+2. create web files - remember umask if set
+3. run the container port and web files
+4. create a service
+5. enable service
+
+
+as root
+loginctl enable-linger cindy
+check
+ls /var/lib/systemd/linger
+
+1. 
+ssh cindy@localhost
+podman build -t web_image http://
+podman images
+
+as cindy
+mkdir web_files
+touch index.html
+
+chmod 755 web_files
+chmod 644 web_files/index.html
+
+cindy_web
+8000 
+80
+
+podman run -d -p 8000:80 -v ~/web_files:/var/www/html:Z --name cindy_web localhost/web_image
+
+podman ps
+
+
+2. config file
+
+mkdir -p .config/systemd/user
+cd .config/systemd/user
+
+podman generate systemd --files --name cindy_web --new
+
+ls -la 
+
+stop and remove container
+podman stop cindy_web
+podman rm cindy_web
+
+systemctl --user enable --now container-cindy_web.service
+
+podman ps
+
+systemctl --user status container-cindy_web
+
+
+
+
+
+
+as root
+loginctl enable-linger michal
+
+ssh michal
+
+mkdir www
+create file
+
+build image
+
+podman build -t sos_image http://
+
+podman images
+
+podman search httpd
+
+podman pull
+
+podman run -it image /bin/bash
+search for path to ww files
+
+podman run -d -p 8000:80 -v /home/michal/www/:/path/in/image/:Z --name sos_www image
+
+service
+
+cd
+mkdir -p .config/systemd/user
+cd .config/systemd/user
+
+podman generate systemd --files --name sos_www --new
+
+podman stop sos_www
+podman rm sos_www
+
+systemctl --user enable container-systemd-file --now
+
+podman ps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

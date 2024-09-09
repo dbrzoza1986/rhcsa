@@ -1,0 +1,6 @@
+archive
+
+
+tar -czvf /root/backup.tar.gz /usr/local
+
+[root@clear ~]# file backup.tar.gz

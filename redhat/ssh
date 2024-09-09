@@ -1,0 +1,17 @@
+vi /etc/ssh/sshd_config
+
+### Change the following line (should be line 40):
+PermitRootLogin yes
+
+systemctl restart sshd
+
+
+
+
+### On server1:
+ssh-keygen
+ssh-copy-id root@192.168.55.72
+scp /root/.ssh/* root@192.168.55.72:/root/.ssh
+
+### On server2:
+ssh-copy-id root@192.168.55.71

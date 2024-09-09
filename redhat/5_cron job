@@ -1,0 +1,10 @@
+cron job
+
+systemctl status crond.service
+[root@node1 ~]# crontab -u natasha -e
+[root@node1 ~]# crontab -u natasha -l
+*/2 * * * * logger "EX200 in progress"
+
+[root@node1 ~]# systemctl enable crond.service
+
+[root@node1 ~]# grep natasha /var/log/messages

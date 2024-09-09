@@ -1,0 +1,17 @@
+users and groups
+
+groupadd sysmgrs
+
+groupadd sysmgrs
+useradd natasha -G sysmgrs
+useradd harry  -G sysmgrs
+useradd sarah --shell /sbin/nologin
+echo "password" | passwd --stdin natasha
+echo "password" | passwd --stdin harry
+echo "password" | passwd --stdin sarah
+
+
+
+[root@clear ~]# useradd -u 3533 manalo
+
+

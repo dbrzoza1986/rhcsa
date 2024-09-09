@@ -1,0 +1,24 @@
+swap
+
+fdisk /dev/sdb
+
+create partition
+
+n
+
+p
+
+type swap 82
+
+w for write
+
+mkswap /partiotin
+
+vi /etc/fstab
+
+UUID=sdfsadf swap swap defaults 0 0 
+
+swapon -a
+swapon
+
+

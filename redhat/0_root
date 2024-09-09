@@ -1,0 +1,26 @@
+systemd.unit=multi-user.target rd.break enforcing=0
+
+Ctrl-x 
+
+mount -o rw,remount /sysroot
+chroot /sysroot
+passwd root
+
+Ctrl-d twice 
+### Login
+
+restorecon /etc/shadow
+systemctl set-default multi-user
+systemctl reboot
+
+
+
+
+
+
+
+
+
+
+
+

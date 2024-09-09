@@ -1,0 +1,38 @@
+
+
+
+fdisk /dev/sdb
+nowa partycja
+typ lvm
+w
+
+
+create volume grupe
+vgcreate nazwa_vg /dev/sda - partycja
+
+create logical volume
+lvcreate -L 500M -n nazwa_lv nazwa_vg
+
+ls /dev/mapper/
+
+formatuj do ext4
+mkfs.ext4 /dev/mapper/nazwa_lv
+
+find uuid
+lsblk -f
+
+
+
+vim /etc/fstab
+
+UUID=sdfasf	/mnt/platform_vg/	ext4	defaults	0 0	
+
+
+mount -a
+mount
+
+
+
+
+
+lvextend -L +500M -r /dev/mapper/name

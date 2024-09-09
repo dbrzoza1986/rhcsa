@@ -1,0 +1,14 @@
+Configure your system to be an NTP client for materials.example.com.
+(Note: materials.example.com is a DNS alias for classroom.example.com)
+
+
+systemctl list-units | grep NTP
+
+vim /etc/chrony.conf
+
+server tempus1.gum.gov.pl iburst
+
+systemctl restart chronyd
+
+chronyc sources -v
+

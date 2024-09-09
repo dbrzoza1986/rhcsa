@@ -1,0 +1,15 @@
+semange fcontext -m -t object_r:admin_home_t /var/www/html/file1
+
+restorecon -v -R /var/www/html/file1
+
+
+semanage port -l | grep http
+
+semanage port -a -t http_port_t -p tcp 82 
+
+vi /etc/selinux/config
+
+permissive
+enforcing
+
+

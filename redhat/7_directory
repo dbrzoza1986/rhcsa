@@ -1,0 +1,29 @@
+Create a collaboration directory
+
+/home/managers with the following characteristics:
+
+The group permissions for /home/managers are sysmgrs.
+
+The directory should be read, write, and accessible by members of sysmgrs, but not by any other user. 
+(Of course, the root user has access to all files and directories on the system).
+
+Files created in /home/managers automatically set group ownership to the sysmgrs group.
+
+
+
+mkdir /home/managers
+ 
+chown root:sysmgrs /home/managers
+
+chmod 070 /home/managers
+chmod g=rwx,o=- /home/managers
+
+chmod g+s /home/managers/
+
+cd /home/managers/
+touch file
+
+-rw-r--r--. 1 root sysmgrs 0 May 14 18:27 file
+ 
+ 
+ 

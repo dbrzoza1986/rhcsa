@@ -1,0 +1,82 @@
+[Yesterday 14:22] Jakub Amanowicz
+NODE 1
+
+1 - repozytorium - ok
+
+2 - interface - ok
+
+3 - selinux
+
+4 - user account - ok
+
+5 - cron job
+
+6 - find z copy
+
+7 - directory
+
+8 - grep z ^$
+
+9 - set minimum age of password
+
+10 - create archive
+
+11 - swap
+
+12 - tune na default
+
+13 - utworzyc image
+
+14 - container as a service
+
+15 - NTP
+
+16 - autofs
+
+17 - permisiony
+
+18 - configure user account(banał)
+ 
+NODE 2
+
+1 - włamać się
+
+2 - ustawić repozytorium
+
+3 - rozszerzyć lvextent 
+
+4 - utworzyc logical volume
+
+
+podman - hikera
+swap - hiker
+repo - hiker
+
+Szukasz stickiy bitów to -perm -1000(stickiy bit), -2000(grroup), -4000(user)
+
+
+
+
+tune - sprawdzic default
+
+find / -type f -perm -u+s > /root/suid.txt
+pliki ze sticky bitami
+
+Solution to Task 23
+chmod g+s,+t /mnt/it_files
+
+
+Solution to Task 24
+dnf install -y at
+
+Solution to Task 25
+dla usera
+
+
+Solution to Task 27
+
+dnf install -y policycore* setrouble*
+
+
+pass
+Red1sossosAtos
